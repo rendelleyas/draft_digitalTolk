@@ -242,27 +242,12 @@ class BookingRepository extends BaseRepository
             } else if (in_array('female', $data['job_for'])) {
                 $data['gender'] = 'female';
             }
-            if (in_array('normal', $data['job_for'])) {
-                $data['certified'] = 'normal';
-            }
-            else if (in_array('certified', $data['job_for'])) {
-                $data['certified'] = 'yes';
-            } else if (in_array('certified_in_law', $data['job_for'])) {
-                $data['certified'] = 'law';
-            } else if (in_array('certified_in_helth', $data['job_for'])) {
-                $data['certified'] = 'health';
-            }
-            if (in_array('normal', $data['job_for']) && in_array('certified', $data['job_for'])) {
-                $data['certified'] = 'both';
-            }
-            else if(in_array('normal', $data['job_for']) && in_array('certified_in_law', $data['job_for']))
-            {
-                $data['certified'] = 'n_law';
-            }
-            else if(in_array('normal', $data['job_for']) && in_array('certified_in_helth', $data['job_for']))
-            {
-                $data['certified'] = 'n_health';
-            }
+
+
+            //create a certified function
+            $data['certified'] = $this->returnCertified($data);
+
+
             if ($consumer_type == 'rwsconsumer')
                 $data['job_type'] = 'rws';
             else if ($consumer_type == 'ngo')
@@ -270,6 +255,7 @@ class BookingRepository extends BaseRepository
             else if ($consumer_type == 'paid')
                 $data['job_type'] = 'paid';
             $data['b_created_at'] = date('Y-m-d H:i:s');
+
             if (isset($due))
                 $data['will_expire_at'] = TeHelper::willExpireAt($due, $data['b_created_at']);
             $data['by_admin'] = isset($data['by_admin']) ? $data['by_admin'] : 'no';
@@ -310,6 +296,30 @@ class BookingRepository extends BaseRepository
 
         return $response;
 
+    }
+
+    public function returnCertified($data){
+        if (in_array('normal', $data['job_for'])) {
+            return 'normal';
+        }
+        else if (in_array('certified', $data['job_for'])) {
+            return  'yes';
+        } else if (in_array('certified_in_law', $data['job_for'])) {
+            return 'law';
+        } else if (in_array('certified_in_helth', $data['job_for'])) {
+            return 'health';
+        }
+        if (in_array('normal', $data['job_for']) && in_array('certified', $data['job_for'])) {
+            return  'both';
+        }
+        else if(in_array('normal', $data['job_for']) && in_array('certified_in_law', $data['job_for']))
+        {
+            return 'n_law';
+        }
+        else if(in_array('normal', $data['job_for']) && in_array('certified_in_helth', $data['job_for']))
+        {
+            return 'n_health';
+        }
     }
 
     /**

@@ -14,6 +14,7 @@
     - can confused why is it existing, whats its purpose
  - No comments on the function/event fired who are not readble at first glance 
  - Long one line code, which are not that good to read. Takes time to digest.
+ - Function with long lines of code. Multiple logic inside the function 
 
 
 
@@ -63,6 +64,8 @@
                 ->paginate(15);
     ```
 
+- #5 Function with long lines of code. Multiple logic inside the function 
+    - Too many logic inside a function. To make it more readable segregate each function into small function.
 
 ### Thoughts on formatting, structure, logic and etc.
  - Personally, the code is readable, I can clearly read it. 
