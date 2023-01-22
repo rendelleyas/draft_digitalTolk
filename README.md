@@ -1,11 +1,11 @@
 ## Code
 
-What makes it amazing code?
+### What makes it amazing code?
 - Readability
     : personally, for me the code is readable
 
 
-What makes it terrible code?
+### What makes it terrible code?
  - Ununiformed variable naming
     - There are multiple format of variable naming. like '$consumer_type', '$completeddate', and '$adminSenderEmail'
     - Consistency allows others to more easily understand your code.
@@ -17,7 +17,7 @@ What makes it terrible code?
 
 
 
-How would you have done it
+### How would you have done it
  - #1 Ununiformed variable naming
     - Personaly I prefer camelCase its looks shorter than snake_case with additional '_'.
     - Team should have a code guidelines  - list all the  recommended styles and practices (variable and function namings)
@@ -64,7 +64,7 @@ How would you have done it
     ```
 
 
-Thoughts on formatting, structure, logic and etc.
+### Thoughts on formatting, structure, logic and etc.
  - Personally, the code is readable, I can clearly read it. 
    As I have stated on why is it terrible, those things can also be improved. 
    But, those suggesstion should also be align with the teams guidlines and criteria. Teams guidlines and criteria is the foundation of the good code.
