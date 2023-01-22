@@ -22,20 +22,18 @@ How would you have done it
     : Team should have a code guidelines  - list all the  recommended styles and practices (variable and function namings)
  - #2 Uncomplex condition
     : on simple condition its better to use ternary operator than else if
-    
-        From: 
-        ```bash
-            if (isset($data['distance']) && $data['distance'] != "") {
-                $distance = $data['distance'];
-            } else {
-                $distance = "";
-            }
-        ```
-        =========
-        To: 
-        ``bash
-            $distance = isset($data['distance']) && $data['distance'] != ""? $data['distance'] : "";
-        ```
+    From: 
+```
+    if (isset($data['distance']) && $data['distance'] != "") {
+        $distance = $data['distance'];
+    } else {
+        $distance = "";
+    }
+```
+    To: 
+```bash
+    $distance = isset($data['distance']) && $data['distance'] != ""? $data['distance'] : "";
+```
  - #3 Unecessary and unutilized variables
     : remove unecessary or unutilized variables
     ```
