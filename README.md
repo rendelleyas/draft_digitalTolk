@@ -45,7 +45,7 @@
             return response($this->repository->getUsersJobsHistory($user_id, $request));
     ```
  - #4 Long one line code. 
-    - remove unecessary or unutilized variables
+    - long line of code is  to hard to read. Add a new line per data or function
     ```
         From:
             $jobs = $cuser->jobs()->with('user.userMeta', 'user.average', 'translatorJobRel.user.average', 'language', 'feedback', 'distance')->whereIn('status', ['completed', 'withdrawbefore24', 'withdrawafter24', 'timedout'])->orderBy('due', 'desc')->paginate(15);
