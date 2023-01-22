@@ -22,45 +22,48 @@ How would you have done it
     : Team should have a code guidelines  - list all the  recommended styles and practices (variable and function namings)
  - #2 Uncomplex condition
     : on simple condition its better to use ternary operator than else if
-```
-    From: 
-        if (isset($data['distance']) && $data['distance'] != "") {
-            $distance = $data['distance'];
-        } else {
-            $distance = "";
-        }
-    =========
-    To: 
-        $distance = isset($data['distance']) && $data['distance'] != ""? $data['distance'] : "";
-```
+    
+        From: 
+        ```bash
+            if (isset($data['distance']) && $data['distance'] != "") {
+                $distance = $data['distance'];
+            } else {
+                $distance = "";
+            }
+        ```
+        =========
+        To: 
+        ``bash
+            $distance = isset($data['distance']) && $data['distance'] != ""? $data['distance'] : "";
+        ```
  - #3 Unecessary and unutilized variables
     : remove unecessary or unutilized variables
-```
-    From:
-        $response = $this->repository->getUsersJobsHistory($user_id, $request);
-        return response($response);
-    =========
-    To:
-        return response($this->repository->getUsersJobsHistory($user_id, $request));
-```
+    ```
+        From:
+            $response = $this->repository->getUsersJobsHistory($user_id, $request);
+            return response($response);
+        =========
+        To:
+            return response($this->repository->getUsersJobsHistory($user_id, $request));
+    ```
  - #3 Long one line code. 
     : remove unecessary or unutilized variables
-```
-    From:
-        $jobs = $cuser->jobs()->with('user.userMeta', 'user.average', 'translatorJobRel.user.average', 'language', 'feedback', 'distance')->whereIn('status', ['completed', 'withdrawbefore24', 'withdrawafter24', 'timedout'])->orderBy('due', 'desc')->paginate(15);
-    =========
-    To:
-        $jobs = $cuser->jobs()
-            ->with('user.userMeta', 
-                'user.average', 
-                'translatorJobRel.user.average', 
-                'language', 
-                'feedback', 
-                'distance'
-            )->whereIn('status', ['completed', 'withdrawbefore24', 'withdrawafter24', 'timedout'])
-            ->orderBy('due', 'desc')
-            ->paginate(15);
-```
+    ```
+        From:
+            $jobs = $cuser->jobs()->with('user.userMeta', 'user.average', 'translatorJobRel.user.average', 'language', 'feedback', 'distance')->whereIn('status', ['completed', 'withdrawbefore24', 'withdrawafter24', 'timedout'])->orderBy('due', 'desc')->paginate(15);
+        =========
+        To:
+            $jobs = $cuser->jobs()
+                ->with('user.userMeta', 
+                    'user.average', 
+                    'translatorJobRel.user.average', 
+                    'language', 
+                    'feedback', 
+                    'distance'
+                )->whereIn('status', ['completed', 'withdrawbefore24', 'withdrawafter24', 'timedout'])
+                ->orderBy('due', 'desc')
+                ->paginate(15);
+    ```
 
 
 Thoughts on formatting, structure, logic and etc.
